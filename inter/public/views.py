@@ -6,7 +6,7 @@ from django.contrib.auth.hashers import check_password
 # Create your views here.
 
 def home(request):
-    print('hello')
+    print("heyyy")
             
 
     
@@ -16,6 +16,7 @@ def home(request):
 
 def login(request):
     print("rrrrrrr")
+    print("thinkkk")
     if request.POST:
         uname=request.POST.get('uname')
         pwd=request.POST.get('pwd')
