@@ -15,7 +15,7 @@ def home(request):
 
 
 def login(request):
-
+    print("rrrrrrr")
     if request.POST:
         uname=request.POST.get('uname')
         pwd=request.POST.get('pwd')
