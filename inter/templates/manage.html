@@ -1,0 +1,74 @@
+{% include 'header.html' %}
+
+<div class="jumbotron d-flex align-items-center" style="background-image: url(/static/img/tr4.jpg);">
+  <div class="container text-center">
+   <!--  <h1 class="display-1 mb-4">RO<br>XY</h1> -->
+   <h1>Lets chat!!</h1>
+
+    <form id="form">
+        <input type="text" name="message" class="form-control"/>
+    </form>
+    <br>
+
+    <div id="messages" style="background-color: rgb(14, 3, 3);"></div>
+   
+    <script type="text/javascript">
+        let url = 'ws://' + window.location.host + '/ws/chat/'
+
+        const chatSocket = new WebSocket(url)
+
+        chatSocket.onmessage = function(e){
+            let data = JSON.parse(e.data)
+            console.log('Data:', data)
+
+            if(data.type === 'chat'){
+                let messages = document.getElementById('messages')
+
+                messages.insertAdjacentHTML('beforeend', `<div>
+                                        <p>${data.message}</p>
+                                    </div>`)
+            }
+        }
+
+        let form = document.getElementById('form')
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault()
+            let message = e.target.message.value 
+            chatSocket.send(JSON.stringify({
+                'message':message
+            }))
+            form.reset()
+        })
+
+    </script>
+    </center>
+  </div>
+<!--   <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div> -->
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="triangle triangle-1">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-2">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-3">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-4">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+</div>	
+
+ 
+		   						
+		   			
+
+
+			
+
+{% include 'footer.html' %}
