@@ -6,8 +6,9 @@ from django.contrib.auth.hashers import check_password
 # Create your views here.
 
 def home(request):
+
     
-            
+    print("waitt")
     return render(request,'home.html')
 
 
