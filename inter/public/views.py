@@ -8,6 +8,9 @@ from django.contrib.auth.hashers import check_password
 def home(request):
     print('hello')
             
+
+    
+    print("waitt")
     return render(request,'home.html')
 
 
